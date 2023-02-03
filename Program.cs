@@ -1,6 +1,11 @@
 using enthusiastic.Hubs;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using enthusiastic.Data;
 
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddDbContext<enthusiasticContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("enthusiasticContext") ?? throw new InvalidOperationException("Connection string 'enthusiasticContext' not found.")));
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
