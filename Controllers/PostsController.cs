@@ -58,6 +58,19 @@ namespace enthusiastic.Controllers
         {
             if (ModelState.IsValid)
             {
+                _context.Add(post);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            }
+            return View(post);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> CreatePost([Bind("Id,Title,Date,Autor,Content")] Post post)
+        {
+            if (ModelState.IsValid)
+            {
                 post.Autor = "Natanael";
                 post.Date = DateTime.Today;
                 _context.Add(post);

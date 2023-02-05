@@ -5,13 +5,11 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<h3>Feed Notices</h3>
 
-@await Html.PartialAsync("~/Views/Posts/Create.cshtml", new Post())
+@await Html.PartialAsync("~/Views/Posts/CreatePost.cshtml", new Post())
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
+
 @foreach (var item in Model)
 {
     <div class="media border p-3">
