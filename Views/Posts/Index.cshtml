@@ -1,4 +1,5 @@
-﻿@model IEnumerable<enthusiastic.Models.Post>
+﻿@using enthusiastic.Models;
+@model IEnumerable<enthusiastic.Models.Post>;
 
 @{
     ViewData["Title"] = "Index";
@@ -6,10 +7,38 @@
 
 <h1>Index</h1>
 
+@await Html.PartialAsync("~/Views/Posts/Create.cshtml", new Post())
+
 <p>
     <a asp-action="Create">Create New</a>
 </p>
-<table class="table">
+@foreach (var item in Model)
+{
+    <div class="media border p-3">
+    <table class="w-100">
+        <tr>
+            <td style="width:10%"> <img src="images/img_avatar3.png" alt="John Doe" class="mr-3 mt-3 rounded-circle" style="width:60px;"></td>
+            <td>
+                <h5>@Html.DisplayFor(modelItem => item.Autor)</h5>              
+            </td>
+        </tr>
+        <tr>
+            <td style="width:10%"></td>
+            <td>
+                <h5> @Html.DisplayFor(modelItem => item.Title)</h5>
+            </td>
+        </tr>
+        <tr>
+            <td style="width:10%">
+            <td>
+                <p> @Html.DisplayFor(modelItem => item.Content)</p>
+            </td>
+         </tr>
+    </table>  
+    </div>
+
+}
+@*<table class="table">
     <thead>
         <tr>
             <th>
@@ -50,4 +79,4 @@
         </tr>
 }
     </tbody>
-</table>
+</table>*@

@@ -58,6 +58,8 @@ namespace enthusiastic.Controllers
         {
             if (ModelState.IsValid)
             {
+                post.Autor = "Natanael";
+                post.Date = DateTime.Today;
                 _context.Add(post);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));

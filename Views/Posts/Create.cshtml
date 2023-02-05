@@ -4,40 +4,59 @@
     ViewData["Title"] = "Create";
 }
 
-<h1>Create</h1>
-
-<h4>Post</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Title" class="control-label"></label>
-                <input asp-for="Title" class="form-control" />
-                <span asp-validation-for="Title" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Date" class="control-label"></label>
-                <input asp-for="Date" class="form-control" />
-                <span asp-validation-for="Date" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Autor" class="control-label"></label>
-                <input asp-for="Autor" class="form-control" />
-                <span asp-validation-for="Autor" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Content" class="control-label"></label>
-                <input asp-for="Content" class="form-control" />
-                <span asp-validation-for="Content" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
-        </form>
+<div class="media border p-3">
+    <div class="row">
+    <div class="col-sm-1">
+        <img src="images/img_avatar3.png" alt="John Doe" class="mr-3 mt-3 rounded-circle" style="width:60px;">
+    </div>
+        <div class="col-sm-10">
+     <form asp-action="Create">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group">
+            <label asp-for="Title" class="control-label"></label>
+            <input asp-for="Title" class="form-control" />
+            <span asp-validation-for="Title" class="text-danger"></span>
+        </div>     
+        <div class="form-group">
+            <label asp-for="Content" class="control-label"></label>
+            <input asp-for="Content" class="form-control" />
+            <span asp-validation-for="Content" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Create" class="btn btn-primary" />
+        </div>
+    </form>
+      </div>
     </div>
 </div>
+
+@* <form asp-action="Create">
+
+            <table class="w-100">
+                <tr>
+                    <td style="width:10%"> <img src="images/img_avatar3.png" alt="John Doe" class="mr-3 mt-3 rounded-circle" style="width:60px;"></td>
+                    <td>  
+                        <label asp-for="Title" class="control-label"></label>
+                        <input asp-for="Title" class="form-control" />
+                        <span asp-validation-for="Title" class="text-danger"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width:10%"></td>
+                    <td> 
+                        <label asp-for="Content" class="control-label"></label>
+                        <input asp-for="Content" class="form-control" />
+                        <span asp-validation-for="Content" class="text-danger"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width:10%">
+                    <td>
+                        <input type="submit" value="Create" class="btn btn-primary align-items-lg-end" />
+                    </td>
+                </tr>
+            </table>
+        </form>*@
 
 <div>
     <a asp-action="Index">Back to List</a>
